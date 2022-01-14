@@ -5,9 +5,10 @@
 
 #include <iostream>
 #include <string>
-#include <stdlib.h>
+#include <cstdlib>
 #include <vector>
 #include <ctime>
+
 
 const std::vector <size_t> cache_size { 512 * 1024,          // L1
                                      2 * 1024 * 1024,      // L2
@@ -19,8 +20,8 @@ class Investigation
 {
  private:
   std::string _travel_variant;
-  std::vector <size_t> _buffer_size;      // объём буфера
-  std::vector <double> _duration;         // время
+  std::vector <size_t> _buffer_size;
+  std::vector <double> _duration;
  public:
   explicit Investigation(std::string travel_variant = "");
   ~Investigation();

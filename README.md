@@ -129,32 +129,203 @@ cache_size['3'] = 8 mb;
 #### Шаг 3
 
 Для получения времени обхода от размера массива процедуру прохода необходимо многократно повторить (порядка 1000 раз).
-
-### Результаты
-
-Ниже представлен формат и пример отчета:
-
-```yaml
-investigation:                                       |  investigaion:
-  travel_variant: <вариант_прохода>                  |    travel_order: "direction"
-  experiments:                                       |    experiments:
-  - experiment:                                      |    - experiment:
-      number:                                        |        number: 1
-      input_data:                                    |        input_data:
-        buffer_size: <размер_буфера>                 |          buffer_size: "1mb"
-      results:                                       |        results:
-        duration: <продолжительность>                |          duration: "1ns"
-  - experiment:                                      |    - experiment:
-      number: <номер_эксперимента>                   |        number: 2
-      input_data:                                    |        input_data:
-        buffer_size: <размер_буфера>                 |          buffer_size: "2mb"
-      results:                                       |        results:
-        duration: <продолжительность>                |          duration: "2ns"
-                                                     |
-investigation:                                       |  investigation:
-...                                                  |  ...
-```
-
 ### Рекомендации
 
 При создание неиспользуемых переменных для считывание данных из буфера можно использовать аттрибут `[[maybe_unused]]`
+
+### Результаты
+
+Выполнение программы осуществлялось на процессоре AMD Ryzen 5 3500U
+```
+Investigation:
+        travel order: "direction"
+        experiments:
+        - experiment:
+                number: 1
+                input data:
+                        buffer size: "256Kb"
+                results:
+                        duration: "26ms"
+        - experiment:
+                number: 2
+                input data:
+                        buffer size: "512Kb"
+                results:
+                        duration: "20ms"
+        - experiment:
+                number: 3
+                input data:
+                        buffer size: "1Mb"
+                results:
+                        duration: "66ms"
+        - experiment:
+                number: 4
+                input data:
+                        buffer size: "2Mb"
+                results:
+                        duration: "98ms"
+        - experiment:
+                number: 5
+                input data:
+                        buffer size: "4Mb"
+                results:
+                        duration: "334ms"
+        - experiment:
+                number: 6
+                input data:
+                        buffer size: "8Mb"
+                results:
+                        duration: "653ms"
+        - experiment:
+                number: 7
+                input data:
+                        buffer size: "16Mb"
+                results:
+                        duration: "1.136s"
+        - experiment:
+                number: 8
+                input data:
+                        buffer size: "32Mb"
+                results:
+                        duration: "2.297s"
+        - experiment:
+                number: 9
+                input data:
+                        buffer size: "64Mb"
+                results:
+                        duration: "4.695s"
+        - experiment:
+                number: 10
+                input data:
+                        buffer size: "72Mb"
+                results:
+                        duration: "4.819s"
+
+Investigation:
+        travel order: "reverse"
+        experiments:
+        - experiment:
+                number: 1
+                input data:
+                        buffer size: "256Kb"
+                results:
+                        duration: "10ms"
+        - experiment:
+                number: 2
+                input data:
+                        buffer size: "512Kb"
+                results:
+                        duration: "20ms"
+        - experiment:
+                number: 3
+                input data:
+                        buffer size: "1Mb"
+                results:
+                        duration: "40ms"
+        - experiment:
+                number: 4
+                input data:
+                        buffer size: "2Mb"
+                results:
+                        duration: "80ms"
+        - experiment:
+                number: 5
+                input data:
+                        buffer size: "4Mb"
+                results:
+                        duration: "287ms"
+        - experiment:
+                number: 6
+                input data:
+                        buffer size: "8Mb"
+                results:
+                        duration: "588ms"
+        - experiment:
+                number: 7
+                input data:
+                        buffer size: "16Mb"
+                results:
+                        duration: "1.14s"
+        - experiment:
+                number: 8
+                input data:
+                        buffer size: "32Mb"
+                results:
+                        duration: "2.569s"
+        - experiment:
+                number: 9
+                input data:
+                        buffer size: "64Mb"
+                results:
+                        duration: "5.008s"
+        - experiment:
+                number: 10
+                input data:
+                        buffer size: "72Mb"
+                results:
+                        duration: "5.562s"
+
+Investigation:
+        travel order: "random"
+        experiments:
+        - experiment:
+                number: 1
+                input data:
+                        buffer size: "256Kb"
+                results:
+                        duration: "142ms"
+        - experiment:
+                number: 2
+                input data:
+                        buffer size: "512Kb"
+                results:
+                        duration: "263ms"
+        - experiment:
+                number: 3
+                input data:
+                        buffer size: "1Mb"
+                results:
+                        duration: "432ms"
+        - experiment:
+                number: 4
+                input data:
+                        buffer size: "2Mb"
+                results:
+                        duration: "928ms"
+        - experiment:
+                number: 5
+                input data:
+                        buffer size: "4Mb"
+                results:
+                        duration: "1.723s"
+        - experiment:
+                number: 6
+                input data:
+                        buffer size: "8Mb"
+                results:
+                        duration: "5.646s"
+        - experiment:
+                number: 7
+                input data:
+                        buffer size: "16Mb"
+                results:
+                        duration: "8.219s"
+        - experiment:
+                number: 8
+                input data:
+                        buffer size: "32Mb"
+                results:
+                        duration: "14.987s"
+        - experiment:
+                number: 9
+                input data:
+                        buffer size: "64Mb"
+                results:
+                        duration: "24.807s"
+        - experiment:
+                number: 10
+                input data:
+                        buffer size: "72Mb"
+                results:
+                        duration: "29.365s"
+```

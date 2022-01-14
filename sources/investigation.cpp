@@ -19,11 +19,11 @@ void Investigation::direction(){
   [[maybe_unused]] int k = 0;
   for (const size_t size : _buffer_size) {
     int* arr = new int[size / 4];
-    for (size_t i = 0; i < size / 4; i += 16) {  //прогрев
+    for (size_t i = 0; i < size / 4; i += 16) {
       k = arr[i];
     }
     clock_t start = clock();
-    for (size_t it = 0; it < iteration; it++) {  //чтение
+    for (size_t it = 0; it < iteration; it++) {
       for (size_t j = 0; j < size / 4; j += 16) {
         k = arr[j];
       }
@@ -39,11 +39,11 @@ void Investigation::reverse(){
   [[maybe_unused]] int k = 0;
   for (const size_t size : _buffer_size) {
     int* arr = new int[size / 4];
-    for (int i = size / 4; i >= 0; i -= 16) {  //прогрев
+    for (int i = size / 4; i >= 0; i -= 16) {
       k = arr[i];
     }
     clock_t start = clock();
-    for (size_t it = 0; it < iteration; it++) {  //чтение
+    for (size_t it = 0; it < iteration; it++) {
       for (int j = size / 4; j >= 0; j -= 16) {
         k = arr[j];
       }
@@ -59,15 +59,14 @@ void Investigation::random(){
   [[maybe_unused]] int k = 0;
   for (const size_t size : _buffer_size) {
     int* arr = new int[size / 4];
-    for (size_t i = 0; i < size / 4; i += 16) {  //прогрев
-      unsigned int seed = i;
-      k = arr[(rand_r(&seed) % (size / 4 / 16)) * 16];
+    for (size_t i = 0; i < size / 4; i += 16) {
+      k = arr[(rand() % (size / 4 / 16)) * 16];
     }
     clock_t start = clock();
-    for (size_t it = 0; it < iteration; it++) {  //чтение
+    for (size_t it = 0; it < iteration; it++) {
       for (size_t j = 0; j < size / 4; j += 16) {
-        unsigned int seed = j;
-        k = arr[(rand_r(&seed) % (size / 4 / 16)) * 16];
+
+        k = arr[(rand() % (size / 4 / 16)) * 16];
       }
     }
     clock_t stop = clock();
